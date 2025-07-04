@@ -20,7 +20,7 @@ variables:
 
   # Agent VM image name
 pool:
-name: 'azureagent'
+  name: 'azureagent'
 
 stages:
 - stage: Build
