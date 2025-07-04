@@ -51,12 +51,18 @@ stages:
         command: 'push'
         tags: '$(tag)'
 - stage: Update
-  displayName: Update k8 Manifests
+  displayName: Update Kubernetes Manifests
   jobs:
-  - job: Update
-    displayName: Update k8 Manifests
+  - job: UpdateManifests
+    displayName: Update K8s Manifests
     steps:
+    - script: |
+        sudo apt-get update && sudo apt-get install -y dos2unix
+        dos2unix scripts/updatek8sManifests.sh
+      displayName: Install Dependencies and Fix Script Format
+
     - task: ShellScript@2
+      displayName: Run Manifest Update Script
       inputs:
-         scriptPath: 'scripts/updatek8sManifests.sh'
-         args: 'vote $imageRepository $tag'
+        scriptPath: 'scripts/updatek8sManifests.sh'
+        args: 'vote $(imageRepository) $(tag)'
