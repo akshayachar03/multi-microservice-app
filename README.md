@@ -5,6 +5,7 @@
 This project demonstrates how to deploy a containerized **microservices-based voting app** using Azure DevOps CI/CD pipelines, a custom self-hosted agent, **Azure Kubernetes Service (AKS)** for orchestration, and **ArgoCD for GitOps-based Continuous Deployment**.
 
 ---
+![voting app structure](https://github.com/user-attachments/assets/076a0a65-94cb-49ae-8f10-9d52e4ae739c)
 
 ## 🔧 Prerequisites
 
